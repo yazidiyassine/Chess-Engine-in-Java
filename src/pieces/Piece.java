@@ -1,10 +1,10 @@
-package com.chess.engine.pieces;
+package pieces;
 
 import java.util.List;
 
-import com.chess.engine.board.Alliance;
-import com.chess.engine.board.Board;
-import com.chess.engine.board.Move;
+import board.Alliance;
+import board.Board;
+import board.Move;
 
 public abstract class Piece {
 
@@ -15,6 +15,10 @@ public abstract class Piece {
 		this.piecePosition = piecePosition;
 		this.pieceAlliance = pieceAlliance;
 	}
-	
-	public abstract List<Move> calculateLegalMove(final Board board);
- }
+
+	public Alliance getPieceAlliance() {
+		return this.pieceAlliance;
+	}
+
+	public abstract List<Move> calculateLegalMoves(final Board board);
+}

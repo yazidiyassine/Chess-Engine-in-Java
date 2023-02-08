@@ -1,12 +1,13 @@
-package com.chess.engine.board;
+package board;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.chess.engine.pieces.Piece;
 import com.google.common.collect.ImmutableMap;
 
-abstract class Tile {
+import pieces.Piece;
+
+public abstract class Tile {
 
 	protected final int tileCoordinate;
 	private static Map<Integer, EmptyTile> EMPTY_TILES_CACHE = createAllPossibleEmptyTiles();
@@ -17,7 +18,7 @@ abstract class Tile {
 
 	public static Tile createTile(int tileCoordinate, final Piece piece) {
 		return piece != null ? new OccupiedTile(tileCoordinate, piece) : EMPTY_TILES_CACHE.get(tileCoordinate);
-	}
+	} 
 
 	protected static Map<Integer, EmptyTile> createAllPossibleEmptyTiles() {
 		final Map<Integer, EmptyTile> emptyTileMap = new HashMap<>();
